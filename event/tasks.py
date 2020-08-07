@@ -15,7 +15,7 @@ def send_reminder_to_event_creator():
     for event in events:
         email = EmailMessage(
             'Созданное вами событие скоро начнётся',
-            render_to_string('../event_manager_vue/dist/reminder.html', {
+            render_to_string('../dist/reminder.html', {
                 'event': event
             }),
             to=[event.creator.email]
