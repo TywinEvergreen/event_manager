@@ -39,7 +39,7 @@ services:
     image: redis:alpine
   celery:
     build: .
-    command: celery -A event_manager workr -B -l info
+    command: celery -A event_manager worker -B -l info
     volumes:
       - .:/code
     env_file:
