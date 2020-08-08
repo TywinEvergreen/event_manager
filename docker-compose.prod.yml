@@ -2,7 +2,7 @@
 # $ sudo docker-compose up
 # $ sudo docker-compose run web <command>
 
-version: '3'
+version: '3.7'
 
 services:
   db:
@@ -26,6 +26,7 @@ services:
       - 8000
     depends_on:
       - db
+      - redis
 
   nginx:
     build: ./nginx
@@ -36,18 +37,16 @@ services:
 
   redis:
     image: redis:alpine
-    expose:
-      - 6379
   celery:
     build: .
-    command: celery -A event_manager worker -B -l info
+    command: celery -A event_manager beat -l info
     volumes:
       - .:/code
     env_file:
       - event-manager.env
     depends_on:
-      - redis
       - db
+      - redis
 
 volumes:
   postgres_data:

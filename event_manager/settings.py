@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'test_secret_key')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -182,5 +182,7 @@ WHITENOISE_ROOT = os.path.join(BASE_DIR, 'dist')
 # Celery
 
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')
-CELERY_ACCEPT_CONTENT = ['json']
+CELERY_RESULT_BACKEND = os.environ.get('CELERY_BROKER_URL')
+CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
