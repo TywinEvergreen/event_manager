@@ -6,6 +6,7 @@ from django.core.mail import EmailMessage
 
 from .models import Event
 
+from event_manager.settings import DATABASES
 
 @periodic_task(run_every=timezone.timedelta(minutes=1))
 def send_reminder_to_event_creator():
@@ -23,8 +24,11 @@ def send_reminder_to_event_creator():
         email.send()
     log = 'Reminder sent to creators of {} events'.format(len(events))
     events.update(reminder_sent=True)
-    # return log
-    return str(Event.objects.all())
+    print(DATABASES)
+    print(DATABASES)
+    print(DATABASES)
+    print(DATABASES)
+    return log
 
 @periodic_task(run_every=timezone.timedelta(days=1))
 def remove_events_older_than_3_months():
