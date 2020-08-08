@@ -23,7 +23,8 @@ def send_reminder_to_event_creator():
         email.send()
     log = 'Reminder sent to creators of {} events'.format(len(events))
     events.update(reminder_sent=True)
-    return log
+    # return log
+    return str(Event.objects.all())
 
 @periodic_task(run_every=timezone.timedelta(days=1))
 def remove_events_older_than_3_months():
