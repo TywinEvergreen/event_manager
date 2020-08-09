@@ -76,8 +76,21 @@
                 return errors;
             },
         },
+        created() {
+            this.test_view()
+        },
         methods: {
             ...mapActions(['set_authorization_header', 'set_user']),
+            test_view() {
+                Axios.get('events/test_view/').then(response => {
+                    console.log(response);
+                    console.log(response);
+                    console.log(response);
+                    console.log(response);
+                    console.log(response);
+                    console.log(response);
+                })
+            },
             reset_form() {
                 this.errors = [];
                 this.unable_to_login = false;

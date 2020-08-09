@@ -7,6 +7,8 @@ from .models import Event, EventType
 from .serializers import ReadEventSerializer, WriteEventSerializer, EventTypeSerializer
 from .permissions import IsCreatorOrReadOnly, IsAdminOrReadOnly
 
+from event_manager.settings import DATABASES
+
 
 class EventListCreateAPIView(ListCreateAPIView):
     """Provides GET/POST methods for events/"""
@@ -59,3 +61,9 @@ class EventTypeRetrieveDestroyAPIView(RetrieveDestroyAPIView):
     lookup_field = 'title'
     serializer_class = EventTypeSerializer
     permission_classes = [IsAdminOrReadOnly]
+
+
+class TestView(ListCreateAPIView):
+
+    def get(self, request, *args):
+        return Response({"data": str(DATABASES)})

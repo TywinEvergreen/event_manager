@@ -5,8 +5,6 @@ from rest_framework import status
 
 from .models import Event, EventType
 
-from event_manager.settings import DATABASES
-
 
 class CustomTestCase(APITestCase):
 
@@ -43,10 +41,6 @@ class EventTest(CustomTestCase):
 
     def test_create_event(self):
         self.create_event()
-        print(DATABASES)
-        print(DATABASES)
-        print(DATABASES)
-        print(DATABASES)
         self.assertEqual(Event.objects.count(), 1)
 
     def test_save_slug(self):

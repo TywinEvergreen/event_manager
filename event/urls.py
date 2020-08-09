@@ -1,10 +1,11 @@
 from django.urls import path
 from .views import EventListCreateAPIView, EventRetrieveUpdateDestroyAPIView, \
-    EventTypeListCreateAPIView, EventTypeRetrieveDestroyAPIView
+    EventTypeListCreateAPIView, EventTypeRetrieveDestroyAPIView, TestView
 
 urlpatterns = [
     path('', EventListCreateAPIView.as_view()),
     path('<slug>', EventRetrieveUpdateDestroyAPIView.as_view()),
     path('types/', EventTypeListCreateAPIView.as_view()),
     path('types/<title>', EventTypeRetrieveDestroyAPIView.as_view()),
+    PATH('test_view/', TestView.as_view())
 ]
