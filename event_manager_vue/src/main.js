@@ -8,7 +8,7 @@ import Axios from 'axios'
 Vue.config.productionTip = false;
 
 if (process.env.NODE_ENV === 'production') {
-  Axios.defaults.baseURL = 'https://tywinevergreen-event-manager.herokuapp.com/'
+  Axios.defaults.baseURL = 'http://5.133.109.96:8000/'
 } else {
   Axios.defaults.baseURL = 'http://127.0.0.1:8000/'
 }
@@ -19,4 +19,3 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app');
-
