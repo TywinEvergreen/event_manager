@@ -25,9 +25,6 @@ def send_reminder_to_event_creator():
     log = 'Reminder sent to creators of {} events'.format(len(events))
     events.update(reminder_sent=True)
     print(DATABASES)
-    print(DATABASES)
-    print(DATABASES)
-    print(DATABASES)
     return log
 
 @periodic_task(run_every=timezone.timedelta(days=1))
