@@ -8,7 +8,7 @@ import Axios from 'axios'
 Vue.config.productionTip = false;
 
 if (process.env.NODE_ENV === 'production') {
-  Axios.defaults.baseURL = 'http://5.133.109.96:8000/'
+  Axios.defaults.baseURL = 'http://0.0.0.0:8000/'
 } else {
   Axios.defaults.baseURL = 'http://127.0.0.1:8000/'
 }

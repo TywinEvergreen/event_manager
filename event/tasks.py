@@ -6,8 +6,6 @@ from django.core.mail import EmailMessage
 
 from .models import Event
 
-from event_manager.settings import DATABASES
-
 @periodic_task(run_every=timezone.timedelta(minutes=1))
 def send_reminder_to_event_creator():
     """Notifies creator about soon spending of Event"""
@@ -24,7 +22,6 @@ def send_reminder_to_event_creator():
         email.send()
     log = 'Reminder sent to creators of {} events'.format(len(events))
     events.update(reminder_sent=True)
-    print(DATABASES)
     return log
 
 @periodic_task(run_every=timezone.timedelta(days=1))
