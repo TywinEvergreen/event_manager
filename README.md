@@ -1,5 +1,4 @@
 # EventManager
-http://tywinevergreen-event-manager.xyz/#/
 
 **Install python requirements**  
 
